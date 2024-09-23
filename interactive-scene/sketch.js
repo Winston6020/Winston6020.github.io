@@ -22,14 +22,14 @@ function draw() {
 }
 
 function moveSquare(){
-  if (mouseIsPressed) {
+  while (mouseIsPressed) {
     if (mouseButton === LEFT) {
-      x += speed;
-      y += speed;
+      fill ("black")
+      square (mouseX, mouseY, squareSize)
     }
     if(mouseButton === RIGHT) {
-      x -= speed;
-      y -= speed;
+      x += speed;
+      y += speed;
     }
   }
 }
