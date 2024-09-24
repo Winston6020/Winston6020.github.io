@@ -22,7 +22,7 @@ function draw() {
 }
 
 function moveSquare(){
-  while (mouseIsPressed) {
+  if (mouseIsPressed) {
     if (mouseButton === LEFT) {
       fill ("black")
       square (mouseX, mouseY, squareSize)
