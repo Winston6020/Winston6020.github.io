@@ -1,18 +1,16 @@
 // Traffic Light Starter Code
-// Your Name Here
-// The Date Here
+// Winston George
+// Sept. 25 2024
 
 // GOAL: make a 'traffic light' simulator. For now, just have the light
 // changing according to time. You may want to investigate the millis()
 // function at https://p5js.org/reference/#/p5/millis
 
-let waitTimeGreen = 10000;
-let waitTimeYellow = 2000;
-let waitTImeRed = 10000;
-let lastTimeSwitched = 0;
-let isGreen = true;
-let isYellow = true;
-let isRed = true;
+let lightState = "green";
+let lastSwitchedTime = 0;
+const GREEN_LIGHT_DURATION = 3000;
+const YELLOW_LIGHT_DURATION = 1500;
+const RED_LIGHT_DURATION = 3500;
 
 function setup() {
   createCanvas(600, 600);
@@ -21,6 +19,37 @@ function setup() {
 function draw() {
   background(255);
   drawOutlineOfLights();
+  changeStateIfNeeded();
+  displayCorrectLight();
+}
+function changeStateIfNeeded() {
+  if(lightState === "green" && millis() > lastSwitchedTime + GREEN_LIGHT_DURATION) {
+    lightState = "yellow";
+    lastSwitchedTime = millis();
+  }
+  else if(lightState === "yellow" && millis() > lastSwitchedTime + YELLOW_LIGHT_DURATION) {
+    lightState = "red";
+    lastSwitchedTime = millis();
+  }
+  else if(lightState === "red" && millis() > lastSwitchedTime + RED_LIGHT_DURATION) {
+    lightState = "green";
+    lastSwitchedTime = millis();
+  }
+}
+function displayCorrectLight() {
+  
+  if (lightState === "green") {
+    fill ("green");
+    ellipse(width/2, height/2 + 65, 50, 50); //bottom
+  }
+  if (lightState === "yellow") {
+    fill("yellow");
+    ellipse(width/2, height/2, 50, 50); //middle
+  }
+  if (lightState === "red") {
+    fill ("red");
+    ellipse(width/2, height/2 - 65, 50, 50); //top
+  }
 }
 
 function drawOutlineOfLights() {
@@ -30,27 +59,10 @@ function drawOutlineOfLights() {
   rect(width/2, height/2, 75, 200, 10);
 
   //lights
-  fill("red");
-  if(millis() > lastTimeSwitched + waitTImeRed) {
-    isRed = !isRed;
-    fill("green");
-    lastTimeSwitched = millis();
-  }
-  ellipse(width/2, height/2 - 65, 50, 50); //top
+  fill("255");
   
-  fill("yellow")
-  if(millis() > lastTimeSwitched + waitTimeYellow) {
-    isYellow = !isYellow;
-    fill("red");
-    lastTimeSwitched = millis();
-  }
-  ellipse(width/2, height/2, 50, 50); //middle
+  fill ("255");
   
-  fill("green")
-  if (millis () > lastTimeSwitched + waitTimeGreen) {
-    isGreen = !isGreen;
-    fill("yellow");
-    lastTimeSwitched = millis();
-  }
-  ellipse(width/2, height/2 + 65, 50, 50); //bottom
+  fill ("255");
+  
 }
