@@ -7,6 +7,7 @@
 - [Bouncing Balls](bouncing-ballls)
 - [Generative Art](art)
 - [Perlin Noise Ball](perlin)
+- [Terrain Generator](terrain)
 
 ## Projects
 - [Interactive Scene](interactive-scene)
