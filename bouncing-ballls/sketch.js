@@ -20,10 +20,9 @@ function draw() {
     fill(theBall.red, theBall.green, theBall.blue);
     circle(theBall.x, theBall.y, theBall.radius*2);
   }
-    
 }
 
-function mousePressed (){
+function mousePressed () {
   spawnBall(mouseX, mouseY);
 }
 
