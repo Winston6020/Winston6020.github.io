@@ -14,25 +14,31 @@ function setup() {
 
 function draw() {
   background(220);
-  for (let theCircle of circleArray) {
-    theCircle.y += theCircle.dy;
+  displayAstroids();
+  // for (let theCircle of circleArray) {
+  //   // theCircle.y += theCircle.dy;
 
-    fill("orange");
-    circle (theCircle.x, theCircle.y, theCircle.radius);
-  }
+  //   fill("orange");
+  //   circle (theCircle.x, theCircle.y, theCircle.radius);
+  //   theCircle.y += dy;
+  // }
 }
 
-function mousePressed() {
-  shoot(mouseX, mouseY);
+// function mousePressed() {
+//   shoot(mouseX, mouseY);
+// }
+
+function displayAstroids() {
+
 }
 
-function shoot(theX, theY) {
+function shoot() {
   let theCircle = {
-    x: theX,
-    y: theY,
+    x: random(width),
+    y: height - random(0, 50),
     radius: 25,
-    dx: 5,
-    dy: 5,
+    dx: -5,
+    dy: -5,
   };
   circleArray.push(theCircle);
 }
