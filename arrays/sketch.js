@@ -8,37 +8,41 @@
 
 let circleArray = [];
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  for (let i = 0; i < 5; i++) {
+    shoot();
+  }
+  window.setInterval(shoot, 500);
 }
 
 function draw() {
   background(220);
   displayAstroids();
-  // for (let theCircle of circleArray) {
-  //   // theCircle.y += theCircle.dy;
-
-  //   fill("orange");
-  //   circle (theCircle.x, theCircle.y, theCircle.radius);
-  //   theCircle.y += dy;
-  // }
+  dropAstroids();
 }
 
-// function mousePressed() {
-//   shoot(mouseX, mouseY);
-// }
 
 function displayAstroids() {
+  for (let theCircle of circleArray) {
+    fill("orange");
+    circle(theCircle.x, theCircle.y, theCircle.radius);
+  }
+}
 
+function dropAstroids() {
+  for(let theCircle of circleArray) {
+    theCircle.y += theCircle.speed;
+  }
 }
 
 function shoot() {
   let theCircle = {
     x: random(width),
-    y: height - random(0, 50),
+    y: random(0, 50),
+    speed: random(5, 10),
     radius: 25,
-    dx: -5,
-    dy: -5,
   };
   circleArray.push(theCircle);
 }
