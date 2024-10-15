@@ -8,6 +8,7 @@
 
 let circleArray = [];
 
+let characterArray = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -18,9 +19,10 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background("red");
   displayAstroids();
   dropAstroids();
+  displayCharacter();
 }
 
 
@@ -37,6 +39,13 @@ function dropAstroids() {
   }
 }
 
+function displayCharacter() {
+  for (let theCharacter of characterArray) {
+    fill(220);
+    rect (theCharacter.x, theCharacter.y, theCharacter.rectWidth, theCharacter.rectHeight);
+  }
+}
+
 function shoot() {
   let theCircle = {
     x: random(width),
@@ -45,4 +54,14 @@ function shoot() {
     radius: 25,
   };
   circleArray.push(theCircle);
+}
+
+function character() {
+  let theCharacter = {
+    x: random (width),
+    y: height - 30,
+    rectWidth: 10,
+    rectHeight: 30,
+  };
+  characterArray.push(theCharacter);
 }
