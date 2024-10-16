@@ -10,6 +10,7 @@
 - [Terrain Generator](terrain)
 - [Arrays and Object Notation](arrays)
 - [Bubble Demo](bubble)
+- [Sound Effects](sound-fx)
 
 
 ## Projects

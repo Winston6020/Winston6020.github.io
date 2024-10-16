@@ -7,8 +7,11 @@
 
 
 let circleArray = [];
+let newMarioImg;
 
-let characterArray = [];
+function preload() {
+  newMarioImg.loadImage("new_mario.png");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -22,7 +25,7 @@ function draw() {
   background("red");
   displayAstroids();
   dropAstroids();
-  displayCharacter();
+  showMario();
 }
 
 
@@ -56,12 +59,6 @@ function shoot() {
   circleArray.push(theCircle);
 }
 
-function character() {
-  let theCharacter = {
-    x: random (width),
-    y: height - 30,
-    rectWidth: 10,
-    rectHeight: 30,
-  };
-  characterArray.push(theCharacter);
+function showMario(){
+  image(newMarioImg, 200, 400, newMarioImg.width*0.1, newMarioImgheight*0.1);
 }
