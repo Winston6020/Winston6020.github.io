@@ -11,7 +11,7 @@
 - [Arrays and Object Notation](arrays)
 - [Bubble Demo](bubble)
 - [Sound Effects](sound-fx)
-
+- [Translate/Rotate](translate)
 
 ## Projects
 - [Interactive Scene](interactive-scene)

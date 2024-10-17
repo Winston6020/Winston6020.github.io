@@ -10,7 +10,7 @@ let circleArray = [];
 let newMarioImg;
 
 function preload() {
-  newMarioImg.loadImage("new_mario.png");
+  newMarioImg = loadImage("new_mario.png");
 }
 
 function setup() {
@@ -26,6 +26,7 @@ function draw() {
   displayAstroids();
   dropAstroids();
   showMario();
+  move();
 }
 
 
@@ -59,6 +60,17 @@ function shoot() {
   circleArray.push(theCircle);
 }
 
-function showMario(){
-  image(newMarioImg, 200, 400, newMarioImg.width*0.1, newMarioImgheight*0.1);
+function move() {
+  if (keyIsDown(LEFT_ARROW)) {
+    x -= 5;
+  }
+  if (keyIsDown(RIGHT_ARROW)) {
+    x += 5;
+  }
+}
+
+
+function showMario() {
+  image(newMarioImg, width - 100, height - 100, newMarioImg.width * 0.1, newMarioImg.height * 0.1);
+  
 }
