@@ -35,7 +35,6 @@ function draw() {
   dropAstroids();
   showMario();
   move();
-  deleteMario();
 }
 
 
@@ -81,15 +80,3 @@ function move() {
 function showMario() {
   image(newMarioImg, x, y, newMarioImg.width * 0.1, newMarioImg.height * 0.1);
 }
-
-function deleteMario() {
-  if (circleArray.radius < newMarioImg.width && circleArray.radius < newMarioImg.height) {
-    return true;
-    
-  }
-  else {
-    return false;
-  }
-
-}
-
