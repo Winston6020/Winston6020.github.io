@@ -12,6 +12,7 @@
 - [Bubble Demo](bubble)
 - [Sound Effects](sound-fx)
 - [Translate/Rotate](translate)
+- [Grid Demo](11-grid)
 
 ## Projects
 - [Interactive Scene](interactive-scene)
