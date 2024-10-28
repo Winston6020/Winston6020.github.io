@@ -15,6 +15,7 @@
 - [Grid Demo](11-grid)
 - [Game of Life](12-game-of-life)
 - [Rectangular Grid](13-recangular-grid)
+- [Grid Based Assignment](grid-assignment)
 
 
 ## Projects
