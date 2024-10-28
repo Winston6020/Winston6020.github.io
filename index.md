@@ -13,6 +13,9 @@
 - [Sound Effects](sound-fx)
 - [Translate/Rotate](translate)
 - [Grid Demo](11-grid)
+- [Game of Life](12-game-of-life)
+- [Rectangular Grid](13-recangular-grid)
+
 
 ## Projects
 - [Interactive Scene](interactive-scene)
