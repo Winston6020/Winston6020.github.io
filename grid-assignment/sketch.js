@@ -22,6 +22,7 @@ function setup() {
 function draw() {
   background(220);
   displayGrid();
+  spawnCheckers();
 }
 
 function displayGrid() {
@@ -55,4 +56,15 @@ function generateRandomGrid(cols, rows) {
     shouldPushOne = !shouldPushOne; 
   }
   return newGrid;
+}
+
+function spawnCheckers (){
+  for (let y = 0; y < rows; y++){
+    for (let x = 0; x < cols; x++) {
+      if (grid[y][x] === 1) {
+        circle(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
+        fill ("white");
+      }
+    }
+  }
 }
