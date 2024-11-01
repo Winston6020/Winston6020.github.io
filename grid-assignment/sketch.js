@@ -58,11 +58,11 @@ function generateRandomGrid(cols, rows) {
   return newGrid;
 }
 
-function spawnCheckers (){
+function spawnCheckers () {
   for (let y = 0; y < rows; y++){
     for (let x = 0; x < cols; x++) {
       if (grid[y][x] === 1) {
-        circle(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
+        circle(x * CELL_SIZE + 45, y * CELL_SIZE + 45, CELL_SIZE);
         fill ("white");
       }
     }
