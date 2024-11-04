@@ -59,11 +59,11 @@ function generateRandomGrid(cols, rows) {
 }
 
 function spawnCheckers () {
-  for (let y = 0; y < rows; y++){
+  for (let y = 0; y < rows; y++) {
     for (let x = 0; x < cols; x++) {
-      if (grid[y][x] === 1) {
+      if ((y < 3 || y > 4) && grid[y][x] === 1) {
         circle(x * CELL_SIZE + 45, y * CELL_SIZE + 45, CELL_SIZE);
-        fill ("white");
+        fill ("red");
       }
     }
   }
