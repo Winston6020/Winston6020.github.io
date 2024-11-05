@@ -9,6 +9,13 @@ const CELL_SIZE = 90;
 let grid;
 let cols;
 let rows;
+const BLOCKED = 1;
+const NOTBLOCKED = 0;
+const CHECKERS = 44;
+let theCheckers = {
+  x: 0,
+  y: 0,
+};
 
 
 
@@ -17,6 +24,7 @@ function setup() {
   cols = 8;
   rows = 8;
   grid = generateRandomGrid(cols, rows);
+  grid = [theCheckers.y][theCheckers.x] = CHECKERS;
 }
 
 function draw() {
