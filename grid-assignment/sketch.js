@@ -9,13 +9,11 @@ const CELL_SIZE = 90;
 let grid;
 let cols;
 let rows;
-const BLOCKED = 1;
-const NOTBLOCKED = 0;
-const CHECKERS = 44;
-let theCheckers = {
-  x: 0,
-  y: 0,
-};
+const CHECKERS = 2;
+// let theCheckers = {
+//   x: 0,
+//   y: 0,
+// };
 
 
 
@@ -24,7 +22,7 @@ function setup() {
   cols = 8;
   rows = 8;
   grid = generateRandomGrid(cols, rows);
-  grid = [theCheckers.y][theCheckers.x] = CHECKERS;
+  //grid = [theCheckers.y][theCheckers.x] = CHECKERS;
 }
 
 function draw() {
@@ -83,8 +81,19 @@ function spawnCheckers () {
   }
 }
 
-function moveCheckers() {
-  
+function mousePressed() {
+  let x = Math.floor(mouseX/CELL_SIZE);
+  let y = Math.floor(mouseY/CELL_SIZE);
+  liftPiece(x, y);
+}
+
+function liftPiece() {
+  if (grid[y][x] === 2) {
+    grid[y][x] === 1;
+  }
+  else {
+    grid[y][x] = grid[y][x];
+  }
 }
 
 // function generateCheckers(cols, rows) {
