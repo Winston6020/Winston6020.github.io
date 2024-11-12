@@ -7,8 +7,10 @@
 
 const CELL_SIZE = 90;
 let grid;
-let cols;
-let rows;
+let checkers;
+let cols = 8;
+let rows = 8;
+let checkersGrid;
 const CHECKERS = 2;
 
 
@@ -18,7 +20,7 @@ function setup() {
   cols = 8;
   rows = 8;
   grid = generateRandomGrid(cols, rows);
-  grid = [CHECKERS.y][CHECKERS.x] = CHECKERS;
+  checkersGrid = [CHECKERS.y][CHECKERS.x] = CHECKERS;
 }
 
 function draw() {
@@ -86,9 +88,13 @@ function mousePressed() {
 }
 
 function liftPiece() {
-  if (grid[y][x] === 1) {
-    square (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
-    toggleCell(x, y);
+  for (let y = 0; y < rows; y ++) {
+    for (let x = 0; x < cols; x++){
+      if (grid[y][x] === 1) {
+        square (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
+        toggleCell(x, y);
+      }
+    }
   }
 }
 
@@ -107,27 +113,27 @@ function toggleCell(x, y) {
 
 function generateCheckers(cols, rows) {
   let shouldPushTwo = true;
-  let CHECKERS = [];
+  let newCheckers = [];
   for(let y = 0; y < rows; y++) {
-    newGrid.push([]);
+    newCheckers.push([]);
     for(let x = 0; x < cols; x ++) {
       if (shouldPushTwo) {
-        newGrid[y].push(2);
+        newCheckers[y].push(2);
       }
       else {
-        newGrid[y].push(0);
+        newCheckers[y].push(0);
       }
       shouldPushTwo = !shouldPushTwo;      
     }
     shouldPushTwo = !shouldPushTwo; 
   }
-  return CHECKERS;
+  return newCheckers;
 }
 
 function displayCheckers() {
   for(let y = 0; y < 3; y ++) {
     for(let x = 0; x > 4; x ++) {
-      if (grid[y][x] === 1) {
+      if (grid[y][x] === 2) {
         fill ("red");
         circle (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
       }
