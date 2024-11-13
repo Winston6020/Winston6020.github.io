@@ -20,14 +20,14 @@ function setup() {
   cols = 8;
   rows = 8;
   grid = generateRandomGrid(cols, rows);
-  checkersGrid = [CHECKERS.y][CHECKERS.x] = CHECKERS;
+  checkers = generateCheckers(cols, rows);
 }
 
 function draw() {
   background(220);
   displayGrid();
   // spawnCheckers();
-  generateCheckers();
+  // generateCheckers();
   displayCheckers();
 }
 
@@ -131,10 +131,11 @@ function generateCheckers(cols, rows) {
 }
 
 function displayCheckers() {
-  for(let y = 0; y < 3; y ++) {
-    for(let x = 0; x > 4; x ++) {
-      if (grid[y][x] === 2) {
+  for(let y = 0; y < rows; y ++) {
+    for(let x = 0; x < cols; x ++) {
+      if (checkers[y][x] === 2) {
         fill ("red");
+        ellipseMode(CORNER);
         circle (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
       }
     }

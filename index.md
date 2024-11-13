@@ -16,6 +16,7 @@
 - [Game of Life](12-game-of-life)
 - [Rectangular Grid](13-recangular-grid)
 - [Grid Based Assignment](grid-assignment)
+- [Walker OOP](16-walker-oop)
 
 
 ## Projects
