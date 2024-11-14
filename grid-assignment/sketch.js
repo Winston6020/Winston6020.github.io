@@ -27,7 +27,6 @@ function draw() {
   background(220);
   displayGrid();
   // spawnCheckers();
-  // generateCheckers();
   displayCheckers();
 }
 
@@ -82,29 +81,40 @@ function generateRandomGrid(cols, rows) {
 // }
 
 function mousePressed() {
+  let holdingPiece = false;
   let x = Math.floor(mouseX/CELL_SIZE);
   let y = Math.floor(mouseY/CELL_SIZE);
-  liftPiece(x, y);
+  if(holdingPiece === false) {
+    liftPiece(x, y);
+    holdingPiece = !holdingPiece;
+  }
+  else if (holdingPiece === true) {
+    placePiece(x, y);
+    holdingPiece = !holdingPiece;
+  }
+  return holdingPiece;
 }
 
-function liftPiece() {
-  for (let y = 0; y < rows; y ++) {
-    for (let x = 0; x < cols; x++){
-      if (grid[y][x] === 1) {
-        square (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
-        toggleCell(x, y);
-      }
-    }
+function liftPiece(x, y) {
+  console.log(checkers[y][x]);
+  if (checkers[y][x] === 2) {
+    checkers[y][x] = 1;
+  }
+}
+
+function placePiece(x, y) {
+  if (checkers[y][x] === 1) {
+    checkers [y][x] = 2;
   }
 }
 
 function toggleCell(x, y) {
   for (let y = 0; y < rows; y++) {
     for (let x = 0; x < cols; x++) {
-      if (y < 3 && grid [y][x] === 1) {
+      if (y < 3 && checkers [y][x] === 2) {
         fill("black");
       }
-      if (y > 4 && grid[y][x] === 1) {
+      if (y > 4 && checkers[y][x] === 2) {
         fill("black");
       }
     }
@@ -133,10 +143,15 @@ function generateCheckers(cols, rows) {
 function displayCheckers() {
   for(let y = 0; y < rows; y ++) {
     for(let x = 0; x < cols; x ++) {
-      if (checkers[y][x] === 2) {
+      if (y < 3 && checkers[y][x] === 2) {
         fill ("red");
         ellipseMode(CORNER);
         circle (x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
+      }
+      else if (y > 4 && checkers [y][x] === 2) {
+        fill ("white");
+        ellipseMode(CORNER);
+        circle(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE);
       }
     }
   }
