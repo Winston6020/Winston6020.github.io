@@ -26,7 +26,6 @@ function setup() {
 function draw() {
   background(220);
   displayGrid();
-  // spawnCheckers();
   displayCheckers();
 }
 
@@ -63,23 +62,6 @@ function generateRandomGrid(cols, rows) {
   return newGrid;
 }
 
-// function spawnCheckers () {
-//   for (let y = 0; y < rows; y++) {
-//     for (let x = 0; x < cols; x++) {
-//       if (y < 3 && grid[y][x] === 1) {
-//         fill ("red");
-//         circle(x * CELL_SIZE + 45, y * CELL_SIZE + 45, CELL_SIZE);
-        
-//       }
-//       else if (y > 4 && grid [y][x] === 1) {
-//         fill ("white");
-//         circle(x * CELL_SIZE + 45, y * CELL_SIZE + 45, CELL_SIZE);
-        
-//       }
-//     }
-//   }
-// }
-
 function mousePressed() {
   let holdingPiece = false;
   let x = Math.floor(mouseX/CELL_SIZE);
@@ -96,7 +78,6 @@ function mousePressed() {
 }
 
 function liftPiece(x, y) {
-  console.log(checkers[y][x]);
   if (checkers[y][x] === 2) {
     checkers[y][x] = 1;
   }
@@ -105,19 +86,6 @@ function liftPiece(x, y) {
 function placePiece(x, y) {
   if (checkers[y][x] === 1) {
     checkers [y][x] = 2;
-  }
-}
-
-function toggleCell(x, y) {
-  for (let y = 0; y < rows; y++) {
-    for (let x = 0; x < cols; x++) {
-      if (y < 3 && checkers [y][x] === 2) {
-        fill("black");
-      }
-      if (y > 4 && checkers[y][x] === 2) {
-        fill("black");
-      }
-    }
   }
 }
 
