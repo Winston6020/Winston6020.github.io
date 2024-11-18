@@ -17,6 +17,7 @@
 - [Rectangular Grid](13-recangular-grid)
 - [Grid Based Assignment](grid-assignment)
 - [Walker OOP](16-walker-oop)
+- [Fireworks OOP](18-fireworks)
 
 
 ## Projects
