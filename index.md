@@ -18,6 +18,8 @@
 - [Grid Based Assignment](grid-assignment)
 - [Walker OOP](16-walker-oop)
 - [Fireworks OOP](18-fireworks)
+- [Local Storage Demo](21-local-storage)
+- [Inheritance Demo](22-inheritance)
 
 
 ## Projects
